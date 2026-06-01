@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iqtidar Hussain — Knowledge Strategy & Content Architecture Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a18;
+    --ink-mid: #282826;
+    --ink-light: #45453f;
+    --ink-faint: #6b6b66;
+    --paper: #fafaf7;
+    --paper-warm: #f4f3ee;
+    --paper-mid: #e8e6df;
+    --gold: #b5841a;
+    --gold-light: #e8c97a;
+    --gold-pale: #f7f0dc;
+    --teal: #0f6e56;
+    --teal-light: #e1f5ee;
+    --coral: #993c1d;
+    --coral-light: #faece7;
+    --blue: #185fa5;
+    --blue-light: #e6f1fb;
+    --border: rgba(26,26,24,0.12);
+    --border-strong: rgba(26,26,24,0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,250,247,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .nav-links {
+    display: flex; gap: 1.75rem; list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 60px;
+  }
+  .hero-left {
+    padding: 6rem 4rem 6rem 5rem;
+    display: flex; flex-direction: column; justify-content: center;
+    border-right: 0.5px solid var(--border);
+  }
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-title {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--ink-mid);
+    line-height: 1.6;
+    max-width: 400px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold); }
+  .btn-outline {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border: 1px solid var(--border-strong);
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-right {
+    padding: 6rem 4rem;
+    display: flex; flex-direction: column; justify-content: center;
+    background: var(--paper-warm);
+  }
+  .hero-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    margin-bottom: 3rem;
+  }
+  .stat-box {
+    padding: 2rem 1.5rem;
+    background: var(--paper);
+    border: 0.5px solid var(--border);
+  }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--ink-mid);
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .hero-expertise {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+  }
+  .tag {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.85rem;
+    border: 0.5px solid var(--border-strong);
+    border-radius: 20px;
+    color: var(--ink-mid);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 5rem; }
+  section:nth-child(even) { background: var(--paper-warm); }
+
+  .section-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    color: var(--ink);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-bottom: 1rem;
+    max-width: 640px;
+  }
+  .section-intro {
+    font-size: 1rem;
+    color: var(--ink-mid);
+    max-width: 580px;
+    margin-bottom: 3.5rem;
+  }
+
+  /* ── SERVICES ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+    border: 0.5px solid var(--border);
+  }
+  .service-card {
+    background: var(--paper);
+    padding: 2rem;
+    transition: background 0.2s;
+  }
+  .service-card:hover { background: var(--gold-pale); }
+  .service-icon {
+    width: 36px; height: 36px;
+    background: var(--gold-pale);
+    border: 0.5px solid var(--gold-light);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+  }
+  .service-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+  }
+  .service-desc {
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+    line-height: 1.6;
+  }
+  .service-bullets {
+    margin-top: 0.75rem;
+    padding-left: 0;
+    list-style: none;
+  }
+  .service-bullets li {
+    font-size: 0.78rem;
+    color: var(--ink-mid);
+    padding: 0.2rem 0;
+    padding-left: 1rem;
+    position: relative;
+  }
+  .service-bullets li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--gold);
+    font-size: 0.7rem;
+    top: 0.28rem;
+  }
+
+  /* ── CASE STUDIES ── */
+  .cases-list { display: flex; flex-direction: column; gap: 2px; }
+  .case-item {
+    background: var(--paper);
+    border: 0.5px solid var(--border);
+    overflow: hidden;
+  }
+  .case-header {
+    display: grid; grid-template-columns: auto 1fr auto;
+    align-items: center; gap: 1.5rem;
+    padding: 1.75rem 2rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+  .case-header:hover { background: var(--paper-warm); }
+  .case-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.75rem;
+    color: var(--paper-mid);
+    line-height: 1;
+    min-width: 2.5rem;
+  }
+  .case-meta {}
+  .case-tag {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+  .case-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .case-toggle {
+    font-size: 1.25rem;
+    color: var(--ink-faint);
+    transition: transform 0.3s;
+    line-height: 1;
+  }
+  .case-body {
+    display: none;
+    padding: 0 2rem 2rem 5.5rem;
+    border-top: 0.5px solid var(--border);
+  }
+  .case-body.open { display: block; }
+  .case-header.open .case-toggle { transform: rotate(45deg); }
+
+  .star-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .star-block {}
+  .star-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .star-text {
+    font-size: 0.85rem;
+    color: var(--ink-mid);
+    line-height: 1.65;
+  }
+  .result-highlight {
+    background: var(--teal-light);
+    border-left: 3px solid var(--teal);
+    padding: 1rem 1.25rem;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.85rem;
+    color: var(--teal);
+    font-weight: 500;
+    margin-top: 1.5rem;
+  }
+
+  /* ── IMPACT METRICS ── */
+  .metrics-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 0.5px solid var(--border);
+  }
+  .metric-cell {
+    padding: 2.5rem 2rem;
+    border-right: 0.5px solid var(--border);
+    text-align: center;
+  }
+  .metric-cell:last-child { border-right: none; }
+  .metric-big {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.75rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .metric-desc {
+    font-size: 0.78rem;
+    color: var(--ink-mid);
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── EXPERTISE TABLE ── */
+  .expertise-cols {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem;
+  }
+  .expertise-group {}
+  .expertise-group-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1rem;
+  }
+  .expertise-item {
+    font-size: 0.85rem;
+    color: var(--ink-mid);
+    padding: 0.4rem 0;
+    border-bottom: 0.5px solid var(--border);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .expertise-item::before {
+    content: '';
+    width: 4px; height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── TOOLS ── */
+  .tools-cloud {
+    display: flex; flex-wrap: wrap; gap: 0.75rem;
+  }
+  .tool-chip {
+    font-size: 0.78rem;
+    padding: 0.5rem 1.1rem;
+    background: var(--paper);
+    border: 0.5px solid var(--border-strong);
+    border-radius: 3px;
+    color: var(--ink-mid);
+    font-weight: 500;
+  }
+
+  /* ── CAREER ── */
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px; background: var(--border);
+  }
+  .timeline-entry {
+    padding-left: 2.5rem;
+    padding-bottom: 3rem;
+    position: relative;
+  }
+  .timeline-dot {
+    position: absolute; left: -5px; top: 6px;
+    width: 11px; height: 11px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 2px solid var(--paper-warm);
+  }
+  .timeline-period {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.25rem;
+  }
+  .timeline-role {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+  .timeline-org {
+    font-size: 0.85rem;
+    color: var(--ink-mid);
+    margin-bottom: 0.75rem;
+    font-style: italic;
+  }
+  .timeline-detail {
+    font-size: 0.83rem;
+    color: var(--ink-mid);
+    line-height: 1.7;
+  }
+
+  /* ── CLIENTS / AUDIENCE ── */
+  .audience-cards {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .audience-card {
+    padding: 2rem;
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    background: var(--paper);
+  }
+  .audience-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+  .audience-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .audience-desc {
+    font-size: 0.8rem;
+    color: var(--ink-mid);
+    line-height: 1.6;
+  }
+
+  /* ── CERTS ── */
+  .certs-row {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+  }
+  .cert-pill {
+    font-size: 0.78rem;
+    padding: 0.6rem 1.25rem;
+    background: var(--blue-light);
+    color: var(--blue);
+    border-radius: 3px;
+    font-weight: 500;
+    border: 0.5px solid rgba(24,95,165,0.2);
+  }
+
+  /* ── CONTACT ── */
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+  }
+  .contact-info-row {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 0.5px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--ink-mid);
+  }
+  .contact-info-row a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+  .contact-info-row a:hover { text-decoration: underline; }
+  .contact-icon { color: var(--gold); font-size: 1rem; }
+
+  .contact-form {}
+  .form-group { margin-bottom: 1.25rem; }
+  .form-group label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    margin-bottom: 0.4rem;
+  }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--border-strong);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    border-color: var(--gold);
+  }
+  .form-group textarea { height: 100px; resize: vertical; }
+  .form-submit {
+    width: 100%;
+    padding: 0.85rem;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .form-submit:hover { background: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: var(--paper-warm);
+    padding: 3rem 5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--paper);
+  }
+  .footer-copy {
+    font-size: 0.75rem;
+    color: rgba(250,250,247,0.4);
+  }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a {
+    font-size: 0.75rem;
+    color: rgba(250,250,247,0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold-light); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 4rem 2rem; border-right: none; border-bottom: 0.5px solid var(--border); }
+    .hero-right { padding: 3rem 2rem; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    section { padding: 4rem 2rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .metrics-strip { grid-template-columns: 1fr 1fr; }
+    .metrics-strip .metric-cell:nth-child(2) { border-right: none; }
+    .metrics-strip .metric-cell:nth-child(3) { border-right: 0.5px solid var(--border); }
+    .expertise-cols { grid-template-columns: 1fr; gap: 2rem; }
+    .star-grid { grid-template-columns: 1fr; }
+    .audience-cards { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
+    nav { padding: 0 1rem; }
+    .nav-links { gap: 1rem; }
+    .hero-left { padding: 3rem 1.5rem; }
+    .case-body { padding: 0 1.5rem 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Iqtidar Hussain</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#casestudies">Case Studies</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#career">Career</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding: 0;">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Enterprise Knowledge Strategy · 24+ Years</p>
+    <h1 class="hero-name">Iqtidar<br><em>Hussain</em></h1>
+    <p class="hero-title">Knowledge strategy and content transformation leader who turns fragmented documentation into AI-ready, self-service knowledge systems that measurably reduce support costs and elevate user experience.</p>
+    <div class="hero-cta">
+      <a href="#services" class="btn-primary">View Services</a>
+      <a href="https://www.linkedin.com/in/iqtidarhussain/" target="_blank" class="btn-outline">LinkedIn</a>
+    </div>
+    <div class="hero-expertise" style="margin-top: 2.5rem;">
+      <span class="tag">Content Strategy</span>
+      <span class="tag">Knowledge Architecture</span>
+      <span class="tag">AI & RAG Systems</span>
+      <span class="tag">UX Writing</span>
+      <span class="tag">WCAG Accessibility</span>
+      <span class="tag">Data Analytics</span>
+      <span class="tag">GEO · SEO · AEO</span>
+      <span class="tag">Program Management</span>
+      <span class="tag">Team Leadership</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="stat-box">
+        <div class="stat-num">24+</div>
+        <div class="stat-label">Years in Enterprise Content & Knowledge</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">~70%</div>
+        <div class="stat-label">Operational Efficiency Improvement</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">~30%</div>
+        <div class="stat-label">Workflow Overhead Reduction</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">5K+</div>
+        <div class="stat-label">UI Strings · 100+ Guides · 450+ Help Topics</div>
+      </div>
+    </div>
+    <p style="font-size: 0.78rem; color: var(--ink-faint); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.75rem;">Formerly at</p>
+    <p style="font-size: 1rem; font-weight: 500; color: var(--ink-mid);">Oracle (17 yrs) · Convergys/NetCracker · NIIT · iGATE · Citec Engineering</p>
+    <p style="font-size: 0.8rem; color: var(--ink-mid); margin-top: 0.5rem;">Oracle Fusion Cloud · Oracle CX Industries · Oracle Redwood Design System · Infinys™</p>
+  </div>
+</section>
+
+<!-- METRICS STRIP -->
+<div class="metrics-strip" id="impact">
+  <div class="metric-cell">
+    <div class="metric-big">4</div>
+    <div class="metric-desc">Proven STAR Case Studies with measurable outcomes</div>
+  </div>
+  <div class="metric-cell">
+    <div class="metric-big">3</div>
+    <div class="metric-desc">Cross-functional workflow models adopted enterprise-wide</div>
+  </div>
+  <div class="metric-cell">
+    <div class="metric-big">18+</div>
+    <div class="metric-desc">Writers mentored and led across global content teams</div>
+  </div>
+  <div class="metric-cell">
+    <div class="metric-big">6</div>
+    <div class="metric-desc">Professional certifications incl. AI, ITIL, UX/UI Design</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <p class="section-label">What I offer</p>
+  <h2 class="section-title">Services for startups to enterprise organizations</h2>
+  <p class="section-intro">Whether you're building your first help center or transforming a legacy documentation ecosystem, I bring strategic and hands-on expertise across the full knowledge lifecycle.</p>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-icon">🏗</div>
+      <div class="service-name">Knowledge Architecture & Content Strategy</div>
+      <div class="service-desc">Design scalable, AI-ready knowledge systems from scratch or transform existing documentation estates.</div>
+      <ul class="service-bullets">
+        <li>RAG-optimized content architecture</li>
+        <li>Taxonomy, metadata & lifecycle design</li>
+        <li>Information architecture for self-service</li>
+        <li>Content chunking & structured authoring (DITA)</li>
+        <li>Style guides & governance frameworks</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🤖</div>
+      <div class="service-name">AI-Enabled Content Transformation</div>
+      <div class="service-desc">Align your knowledge base with conversational AI, semantic search, and machine-retrievable systems.</div>
+      <ul class="service-bullets">
+        <li>RAG & agentic AI content readiness audits</li>
+        <li>Conversational AI content design</li>
+        <li>Search optimization for AI-assisted engines</li>
+        <li>AI-assisted documentation modernization</li>
+        <li>Microsoft Copilot Studio integration</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">✍️</div>
+      <div class="service-name">Technical Writing & User Assistance</div>
+      <div class="service-desc">End-to-end creation of product documentation, help systems, and user assistance content.</div>
+      <ul class="service-bullets">
+        <li>Product guides, API docs & help topics</li>
+        <li>Online help systems (Oxygen XML, Arbortext)</li>
+        <li>UI strings, tooltips & in-app guidance</li>
+        <li>Release notes & known issues management</li>
+        <li>Implementation & onboarding documentation</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">✏️</div>
+      <div class="service-name">UX Writing & UI Content</div>
+      <div class="service-desc">Craft user interface content that reduces friction, improves usability, and scales with your product.</div>
+      <ul class="service-bullets">
+        <li>UI string authoring at enterprise scale</li>
+        <li>Microcopy, error messages & onboarding flows</li>
+        <li>Design system content standards (Figma)</li>
+        <li>Content pattern libraries</li>
+        <li>UX writing review & audits</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">♿</div>
+      <div class="service-name">Accessibility & WCAG Advocacy</div>
+      <div class="service-desc">Ensure your documentation and digital content meets WCAG standards for inclusive user experience.</div>
+      <ul class="service-bullets">
+        <li>WCAG compliance audits & remediation</li>
+        <li>Accessibility standards training for teams</li>
+        <li>Inclusive content design frameworks</li>
+        <li>Accessible documentation governance</li>
+        <li>Enterprise-wide WCAG mentoring programs</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">📊</div>
+      <div class="service-name">Data Analytics & Content Intelligence</div>
+      <div class="service-desc">Turn usage data, support tickets, and search queries into a content prioritization engine.</div>
+      <ul class="service-bullets">
+        <li>SEO, GEO & AEO content frameworks</li>
+        <li>Executive analytics dashboards (Excel Power Query)</li>
+        <li>Case deflection & search success analysis</li>
+        <li>Content gap identification from incident data</li>
+        <li>Documentation ROI measurement</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">⚙️</div>
+      <div class="service-name">Program & Workflow Management</div>
+      <div class="service-desc">Design and govern cross-functional content workflows that scale, align stakeholders, and eliminate bottlenecks.</div>
+      <ul class="service-bullets">
+        <li>Swimlane workflow design & facilitation</li>
+        <li>PMO alignment & release governance</li>
+        <li>Confluence-based process management</li>
+        <li>Definition of Done for documentation</li>
+        <li>Cross-team onboarding frameworks</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🎓</div>
+      <div class="service-name">Training, Mentoring & Team Building</div>
+      <div class="service-desc">Build high-performing content and knowledge teams through structured mentoring and capability programs.</div>
+      <ul class="service-bullets">
+        <li>Content team capability assessments</li>
+        <li>Structured authoring training (DITA, XML)</li>
+        <li>Documentation standards workshops</li>
+        <li>Mentoring programs for junior writers</li>
+        <li>Curriculum design for technical audiences</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">📝</div>
+      <div class="service-name">Proposals & Strategic Documentation</div>
+      <div class="service-desc">Craft compelling strategic documents that communicate complex knowledge initiatives to executive audiences.</div>
+      <ul class="service-bullets">
+        <li>Business case & RFP/RFQ writing</li>
+        <li>Executive-ready strategy documents</li>
+        <li>Content transformation roadmaps</li>
+        <li>Knowledge management proposals</li>
+        <li>Stakeholder communication frameworks</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="casestudies" style="background: var(--paper-warm);">
+  <p class="section-label">STAR Case Studies</p>
+  <h2 class="section-title">Real challenges. Measurable outcomes.</h2>
+  <p class="section-intro">The following case studies are drawn from 17 years at Oracle, demonstrating the depth of strategic and operational work across enterprise knowledge initiatives.</p>
+
+  <div class="cases-list">
+
+    <!-- CS 1 -->
+    <div class="case-item">
+      <div class="case-header" onclick="toggleCase(this)">
+        <span class="case-num">01</span>
+        <div class="case-meta">
+          <div class="case-tag">Data Analytics · Operational Metrics</div>
+          <div class="case-title">Metrics Modernization & Executive Analytics for a Documentation Transformation Program</div>
+        </div>
+        <span class="case-toggle">+</span>
+      </div>
+      <div class="case-body">
+        <div class="star-grid">
+          <div class="star-block">
+            <div class="star-label">Situation</div>
+            <div class="star-text">An executive-sponsored pilot initiative transitioning from monolithic documentation to a modular FAQ-based support model. A team of 18 writers manually assessed and categorized customer questions using shared Excel trackers, but lacked a clear framework for measuring progress or generating executive-level insights.</div>
+          </div>
+          <div class="star-block">
+            <div class="star-label">Task</div>
+            <div class="star-text">Establish a reliable, scalable metrics framework to measure project progress, eliminate reporting inaccuracies, consolidate fragmented data sources, and generate meaningful executive dashboards for monitoring team performance, burndown trends, and query resolution outcomes.</div>
+          </div>
+          <div class="star-block">
+            <div class="star-label">Action</div>
+            <div class="star-text">Self-taught advanced Excel Power Query capabilities to consolidate distributed datasets, perform data cleansing, and eliminate duplicates. Designed pivot-based dashboards for burndown metrics, product-wise query distribution, category trends, team efficiency, and writer productivity. Integrated Support team metrics into a unified view. Also developed content chunking metrics based on topic word counts to improve downstream AI-readiness and content ingestion quality.</div>
+          </div>
+          <div class="star-block">
+            <div class="star-label">Result</div>
+            <div class="star-text">Delivered a scalable, data-driven reporting framework that improved reporting accuracy, eliminated inconsistent metrics, and enabled leadership to track performance through reliable executive dashboards — with actionable visibility into operational efficiency, customer query trends, and content optimization readiness.</div>
+          </div>
+        </div>
+        <div class="result-highlight">
+          Key outcome: Transformed assumption-based reporting into a data-driven analytics ecosystem, improving executive confidence in program metrics and enabling AI-readiness planning through content chunking analysis.
+        </div>
+      </div>
+    </div>
+
+    <!-- CS 2 -->
+    <div class="case-item">
+      <div class="case-header" onclick="toggleCase(this)">
+        <span class="case-num">02</span>
+        <div class="case-meta">
+          <div class="case-tag">Workflow Design · Cross-Functional Alignment</div>
+          <div class="case-title">Workflow Standardization Across Product, UX & User Assistance Teams</div>
+        </div>
+        <span class="case-toggle">+</span>
+      </div>
+      <div class="case-body">
+        <div class="star-grid">
+          <div class="star-block">
+            <div class="star-label">Situation</div>
+            <div class="star-text">During the launch of a new product area, the organization transitioned from a traditional workflow — where User Assistance collaborated directly with Product Managers — to a new UX-driven operating model. However, the processes and collaboration framework to support the new system had not been established.</div>
+          </div>
+          <div class="star-block">
+            <div class="star-label">Task</div>
+            <div class="star-text">Define and streamline a scalable cross-functional workflow that aligned Product Management, UX, and User Assistance teams, while reducing process inefficiencies, communication gaps, and operational confusion across the new model.</div>
+          </div>
+          <div class="star-block">
+            <div class="star-label">Action</div>
+            <div class="star-text">Led stakeholder interviews to identify workflow bottlenecks and collaboration challenges caused by disconnected communication channels. Analyzed findings and designed a swimlane workflow diagram clearly defining ownership, handoffs, review cycles, and collaboration touchpoints. Facilitated collaborative review sessions with stakeholders to refine and align all teams on a standardized engagement model.</div>
+          </div>
+          <div class="star-block">
+            <div class="star-label">Result</div>
+            <div class="star-text">Reduced interaction overhead and review iterations by approximately 30%, resulting in improved operational efficiency, clearer stakeholder alignment, and faster collaboration cycles. The workflow framework was later adapted and adopted by multiple additional teams as a baseline operating model.</div>
+          </div>
+        </div>
+        <div class="result-highlight">
+          ~30% reduction in interaction overhead. Workflow adopted as the enterprise baseline model across multiple teams.
+        </div>
+      </div>
+    </div>
+
+    <!-- CS 3 -->
+    <div class="case-item">
+      <div class="case-header" onclick="toggleCase(this)">
+        <span class="case-num">03</span>
+        <div class="case-meta">
+          <div class="case-tag">Program Management · Enterprise Governance</div>
+          <div class="case-title">Enterprise Process Governance & Team Integration Across Industry Business Areas</div>
+        </div>
+        <span class="case-toggle">+</span>
+      </div>
+      <div class="case-body">
+        <div class="star-grid">
+          <div class="star-block">
+            <div class="star-label">Situation</div>
+            <div class="star-text">As the organization expanded into new industry-focused business areas, multiple teams with long-established tools, workflows, and documentation practices needed to be aligned to common enterprise processes to deliver a consistent customer experience across design, development, and documentation.</div>
+          </div>
+          <div class="star-block">
+            <div class="star-label">Task</div>
+            <div class="star-text">Drive cross-functional process standardization across diverse teams, establish scalable documentation governance, and reduce operational friction caused by inconsistent workflows, conflicting stakeholder expectations, and fragmented release management practices.</div>
+          </div>
+          <div class="star-block">
+            <div class="star-label">Action</div>
+            <div class="star-text">Partnered with program managers, release managers, and cross-functional leadership to align organizations to standardized PMO processes. Managed significant stakeholder resistance from senior leadership advocating for legacy processes. Created centralized Confluence tracking pages, embedded documentation sign-off into Definition of Done criteria, collaborated with release managers to formalize onboarding processes, developed specialized workflows, expanded team operations across groups, and trained distributed documentation teams on standardized enterprise processes.</div>
+          </div>
+          <div class="star-block">
+            <div class="star-label">Result</div>
+            <div class="star-text">Significantly reduced confusion, process friction, and workflow inconsistencies across previously siloed teams, enabling smoother cross-functional collaboration and more predictable release execution. The documentation organization became recognized as the central operational partner and go-to team for streamlining enterprise workflows and process governance.</div>
+          </div>
+        </div>
+        <div class="result-highlight">
+          Outcome: The documentation team became the enterprise-wide center of excellence for governance, process design, and cross-functional alignment.
+        </div>
+      </div>
+    </div>
+
+    <!-- CS 4 -->
+    <div class="case-item">
+      <div class="case-header" onclick="toggleCase(this)">
+        <span class="case-num">04</span>
+        <div class="case-meta">
+          <div class="case-tag">Content Strategy · Resource Optimization</div>
+          <div class="case-title">Data-Driven Documentation Prioritization for a Legacy Product Portfolio</div>
+        </div>
+        <span class="case-toggle">+</span>
+      </div>
+      <div class="case-body">
+        <div class="star-grid">
+          <div class="star-block">
+            <div class="star-label">Situation</div>
+            <div class="star-text">Following organizational restructuring, I assumed ownership of a decades-old product portfolio with 100+ documentation guides originally supported by large teams — but now with only one full-time resource available for ongoing monthly releases, still under legacy documentation processes.</div>
+          </div>
+          <div class="star-block">
+            <div class="star-label">Task</div>
+            <div class="star-text">Develop a sustainable, data-driven documentation strategy that optimized limited resources, reduced operational overhead, and aligned documentation priorities with actual customer usage patterns and measurable business value.</div>
+          </div>
+          <div class="star-block">
+            <div class="star-label">Action</div>
+            <div class="star-text">Collaborated with the analytics team to obtain documentation viewership and download metrics. Established a prioritization framework categorizing content into critical and non-critical areas. Incorporated five years of historical customer query data to identify the most frequently referenced and revised topics, correlating support demand with actual content consumption. Used these insights to challenge long-standing stakeholder assumptions where anecdotal perceptions conflicted with measurable usage patterns.</div>
+          </div>
+          <div class="star-block">
+            <div class="star-label">Result</div>
+            <div class="star-text">Enabled a shift from anecdotal decision-making to a metrics-driven documentation strategy, significantly improving resource allocation. The analysis revealed that several traditionally perceived high-value documents had minimal customer engagement, allowing the team to reduce unnecessary maintenance effort and focus resources on content with demonstrable business impact. Prioritization discussions with stakeholders became more objective and data-backed.</div>
+          </div>
+        </div>
+        <div class="result-highlight">
+          Transformed 100+ document portfolio management from assumption-based to evidence-driven — with one resource, without compromising customer-critical content coverage.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <p class="section-label">Core expertise</p>
+  <h2 class="section-title">Capabilities across the knowledge lifecycle</h2>
+  <p class="section-intro">Spanning strategy, execution, analytics, and people leadership — built across 24+ years in enterprise SaaS, telecom, engineering, and defence sectors.</p>
+
+  <div class="expertise-cols">
+    <div class="expertise-group">
+      <div class="expertise-group-title">Content & Knowledge</div>
+      <div class="expertise-item">Enterprise content strategy</div>
+      <div class="expertise-item">Knowledge architecture & taxonomy</div>
+      <div class="expertise-item">DITA-based structured authoring</div>
+      <div class="expertise-item">RAG-optimized content design</div>
+      <div class="expertise-item">AI-enabled self-service systems</div>
+      <div class="expertise-item">Online help system development</div>
+      <div class="expertise-item">Information architecture</div>
+      <div class="expertise-item">Content lifecycle management</div>
+      <div class="expertise-item">Release notes & governance</div>
+    </div>
+    <div class="expertise-group">
+      <div class="expertise-group-title">UX, Analytics & Accessibility</div>
+      <div class="expertise-item">UX writing & UI content</div>
+      <div class="expertise-item">Microcopy & design system content</div>
+      <div class="expertise-item">SEO, GEO & AEO frameworks</div>
+      <div class="expertise-item">Executive analytics dashboards</div>
+      <div class="expertise-item">Case deflection analysis</div>
+      <div class="expertise-item">Search success measurement</div>
+      <div class="expertise-item">WCAG accessibility compliance</div>
+      <div class="expertise-item">Inclusive content design</div>
+      <div class="expertise-item">Content gap & usage analytics</div>
+    </div>
+    <div class="expertise-group">
+      <div class="expertise-group-title">Leadership & Operations</div>
+      <div class="expertise-item">Cross-functional team leadership</div>
+      <div class="expertise-item">Program & workflow management</div>
+      <div class="expertise-item">PMO alignment & governance</div>
+      <div class="expertise-item">Stakeholder management</div>
+      <div class="expertise-item">Writer mentoring & team building</div>
+      <div class="expertise-item">Training & curriculum design</div>
+      <div class="expertise-item">Confluence process management</div>
+      <div class="expertise-item">Definition of Done frameworks</div>
+      <div class="expertise-item">Proposals & strategic writing</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 3rem;">
+    <p class="section-label" style="margin-bottom: 1rem;">Tools & platforms</p>
+    <div class="tools-cloud">
+      <span class="tool-chip">Oxygen XML</span>
+      <span class="tool-chip">Arbortext</span>
+      <span class="tool-chip">Figma</span>
+      <span class="tool-chip">Microsoft Copilot Studio</span>
+      <span class="tool-chip">ServiceNow</span>
+      <span class="tool-chip">Oracle Help Center</span>
+      <span class="tool-chip">Confluence</span>
+      <span class="tool-chip">Excel Power Queries</span>
+      <span class="tool-chip">Swagger / OpenAPI</span>
+      <span class="tool-chip">Doc AI Tools</span>
+      <span class="tool-chip">DITA</span>
+      <span class="tool-chip">Oracle Redwood DS</span>
+      <span class="tool-chip">Oracle Fusion Cloud</span>
+      <span class="tool-chip">Advanced MS Office</span>
+      <span class="tool-chip">SaaS & Enterprise Platforms</span>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section id="career" style="background: var(--paper-warm);">
+  <p class="section-label">Career journey</p>
+  <h2 class="section-title">24 years building enterprise knowledge systems</h2>
+  <p class="section-intro">From technical writer to Group Manager, spanning SaaS, telecom, engineering, and defence across global organizations.</p>
+
+  <div class="timeline">
+    <div class="timeline-entry">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">2008 — 2025</div>
+      <div class="timeline-role">Group Manager, CX Content Strategy</div>
+      <div class="timeline-org">Oracle · Hyderabad, India</div>
+      <div class="timeline-detail">
+        Progressed from Senior Technical Writer to Group Manager, leading enterprise knowledge strategy, AI-enabled content transformation, and self-service optimization across the Oracle SaaS ecosystem. Led cross-functional content and knowledge initiatives across globally distributed Product, UX, Engineering, and Support organizations.<br><br>
+        Established scalable UI and content standards in Oracle Redwood Design System — 5,000+ UI strings, 100+ product guides, 450+ help topics. Steered WCAG compliance strategy for Oracle Fusion Cloud. Achieved ~70% operational efficiency improvement through data-driven executive dashboards and ~30% workflow overhead reduction through cross-functional process redesign.
+      </div>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">2005 — 2008</div>
+      <div class="timeline-role">Senior Technical Writer</div>
+      <div class="timeline-org">Convergys / NetCracker · Hyderabad</div>
+      <div class="timeline-detail">
+        Supported enterprise knowledge management, customer onboarding, and implementation readiness across telecom and technology environments. Developed knowledge assets, implementation guides, and operational documentation for Infinys™ Rating and Billing, supporting large-scale customer deployments. Mentored junior writers on structured authoring practices.
+      </div>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">1998 — 2004</div>
+      <div class="timeline-role">Technical Writer · Trainer · Documentation Specialist</div>
+      <div class="timeline-org">NIIT · Applitech Solutions · Impetus · iGATE · Citec Engineering</div>
+      <div class="timeline-detail">
+        Built foundational expertise in structured authoring, curriculum design, online help systems, and enterprise documentation across diverse sectors. Key contributions include delivering an online help system for ISRO scientific data analysis tools, designing documentation for enterprise reporting products, and redesigning training programs for the Indian Armed Forces and Reliance Industries.
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 3rem;">
+    <p class="section-label" style="margin-bottom: 1rem;">Certifications</p>
+    <div class="certs-row">
+      <span class="cert-pill">RAG & Agentic AI — IBM</span>
+      <span class="cert-pill">ChatGPT Prompt Engineering — Vanderbilt</span>
+      <span class="cert-pill">MS Copilot Studio — LinkedIn</span>
+      <span class="cert-pill">ITIL 4 Foundation — PeopleCert</span>
+      <span class="cert-pill">UI/UX Design — IIIT Bengaluru</span>
+      <span class="cert-pill">ServiceNow Foundation — LinkedIn</span>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section id="audience">
+  <p class="section-label">Who I work with</p>
+  <h2 class="section-title">From startups to global enterprises</h2>
+  <p class="section-intro">I bring the right combination of strategic thinking and hands-on execution — adapting to where you are, and building for where you're going.</p>
+
+  <div class="audience-cards">
+    <div class="audience-card">
+      <div class="audience-icon">🚀</div>
+      <div class="audience-title">Startups & Scale-ups</div>
+      <div class="audience-desc">
+        Build your knowledge foundation right from the start. Avoid technical debt in content, establish content ops early, and create self-service experiences that scale without headcount.
+      </div>
+    </div>
+    <div class="audience-card">
+      <div class="audience-icon">🏢</div>
+      <div class="audience-title">Mid-size Organizations</div>
+      <div class="audience-desc">
+        Modernize documentation workflows, introduce structured authoring and analytics, align content operations across growing product and support teams, and build capability in your existing writers.
+      </div>
+    </div>
+    <div class="audience-card">
+      <div class="audience-icon">🌐</div>
+      <div class="audience-title">Large Enterprises</div>
+      <div class="audience-desc">
+        Transform legacy documentation estates into AI-ready knowledge systems. Drive enterprise governance, cross-functional alignment, and measurable gains in self-service and support efficiency.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background: var(--paper-warm);">
+  <p class="section-label">Let's work together</p>
+  <h2 class="section-title">Start a conversation</h2>
+  <p class="section-intro">Whether you have a specific project in mind or just want to explore how I can help, I'm happy to connect.</p>
+
+  <div class="contact-grid">
+    <div>
+      <div class="contact-info-row">
+        <span class="contact-icon">✉</span>
+        <a href="mailto:callustodoc@iqtidarhussain.co.in">callustodoc@iqtidarhussain.co.in</a>
+      </div>
+      <div class="contact-info-row">
+        <span class="contact-icon">💼</span>
+        <a href="https://www.linkedin.com/in/iqtidarhussain/" target="_blank">linkedin.com/in/iqtidarhussain</a>
+      </div>
+      <div class="contact-info-row">
+        <span class="contact-icon">📍</span>
+        <span>Hyderabad, India · Available for remote & global engagements</span>
+      </div>
+
+      <div style="margin-top: 2.5rem; padding: 1.5rem; border: 0.5px solid var(--border); background: var(--paper);">
+        <p style="font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mid); margin-bottom: 0.75rem;">Typical engagement types</p>
+        <ul style="list-style: none; padding: 0;">
+          <li style="font-size: 0.83rem; color: var(--ink-mid); padding: 0.4rem 0; border-bottom: 0.5px solid var(--border);">Content strategy audits & roadmaps</li>
+          <li style="font-size: 0.83rem; color: var(--ink-mid); padding: 0.4rem 0; border-bottom: 0.5px solid var(--border);">Knowledge architecture design</li>
+          <li style="font-size: 0.83rem; color: var(--ink-mid); padding: 0.4rem 0; border-bottom: 0.5px solid var(--border);">AI-readiness assessments & content transformation</li>
+          <li style="font-size: 0.83rem; color: var(--ink-mid); padding: 0.4rem 0; border-bottom: 0.5px solid var(--border);">Workflow & process design workshops</li>
+          <li style="font-size: 0.83rem; color: var(--ink-mid); padding: 0.4rem 0; border-bottom: 0.5px solid var(--border);">Fractional Head of Documentation / Knowledge</li>
+          <li style="font-size: 0.83rem; color: var(--ink-mid); padding: 0.4rem 0;">Team mentoring & capability programs</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-group">
+        <label>Your name</label>
+        <input type="text" placeholder="Jane Smith">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="jane@company.com">
+      </div>
+      <div class="form-group">
+        <label>Organization size</label>
+        <select>
+          <option value="">Select...</option>
+          <option>Startup (1–50)</option>
+          <option>Mid-size (51–500)</option>
+          <option>Enterprise (500+)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Service area of interest</label>
+        <select>
+          <option value="">Select...</option>
+          <option>Knowledge Architecture & Content Strategy</option>
+          <option>AI-Enabled Content Transformation</option>
+          <option>Technical Writing & User Assistance</option>
+          <option>UX Writing & UI Content</option>
+          <option>Accessibility & WCAG</option>
+          <option>Data Analytics & Content Intelligence</option>
+          <option>Program & Workflow Management</option>
+          <option>Training & Team Mentoring</option>
+          <option>Fractional Knowledge Leader</option>
+          <option>Other / Not sure yet</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tell me about your challenge</label>
+        <textarea placeholder="Briefly describe the problem you're trying to solve or what you're looking to achieve..."></textarea>
+      </div>
+      <button class="form-submit" onclick="alert('Portfolio demo — connect via LinkedIn or email to get in touch!')">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-name">Iqtidar Hussain</div>
+    <div class="footer-copy" style="margin-top: 0.35rem;">Enterprise Knowledge Strategy · Content Architecture · AI-Enabled Transformation</div>
+  </div>
+  <div class="footer-links">
+    <a href="mailto:callustodoc@iqtidarhussain.co.in">Email</a>
+    <a href="https://www.linkedin.com/in/iqtidarhussain/" target="_blank">LinkedIn</a>
+    <a href="#services">Services</a>
+    <a href="#casestudies">Case Studies</a>
+  </div>
+</footer>
+
+<script>
+function toggleCase(header) {
+  const body = header.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.case-body').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.case-header').forEach(h => h.classList.remove('open'));
+  if (!isOpen) {
+    body.classList.add('open');
+    header.classList.add('open');
+  }
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
